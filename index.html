@@ -69,19 +69,19 @@
 
 <span onclick='clearWatch()'><button class="button button-pill button-primary button-large" style="margin:0.1em">Clear Watch</button></span>
 
-<div id=ax class="button button-block button-action button-large" style="margin:1em;">X <span id=accelX></span></div>
-
-<div id=ay class="button button-block button-action button-large" style="margin:1em;">Y <span id=accelY></span></div>
-
-<div id=az class="button button-block button-action button-large" style="margin:1em;">Z <span id=accelZ></span></div>
-
-<div id=ts class="button button-block button-primary button-large" style="margin:1em;">TS <span id=timestamp></span></div>
+<div id=gforceInformation> <!-- aka accelerometer -->
+	<div id=ax class="button button-block button-action button-large" style="margin:0 0.5em;">X <span id=accelX></span></div>
+	<div id=ay class="button button-block button-action button-large" style="margin:0 0.5em;">Y <span id=accelY></span></div>
+	<div id=az class="button button-block button-action button-large" style="margin:0 0.5em;">Z <span id=accelZ></span></div>
+	<div id=ts class="button button-block button-primary button-large" style="margin:0 0.2em;">TS <span id=timestamp></span></div>
+</div>
 
 <div id=hd class="button button-block button-pill button-primary button-large" style="margin:1em;">Heading: <span id=heading></span></div>
 
-<div id=nt class="button button-block button-primary button-large" style="margin:1em;"><span id=networktype>No network connection</span></div>
-
-<div id=ns class="button button-block button-action button-large" style="margin:1em;">Status: <span id=networkstatus>Offline</span></div>
+<div id=networkInformation>
+	<div id=nt class="button button-block button-primary button-large" style="margin:0 0.2em;"><span id=networktype>No network connection</span></div>
+	<div id=ns class="button button-block button-action button-large" style="margin:0 0.2em;">Status: <span id=networkstatus>Offline</span></div>
+</div>
 
 <div id=deviceInformation>
 	<div id=c class="button button-block button-royal">cordova <span id=cordova></span></div>
