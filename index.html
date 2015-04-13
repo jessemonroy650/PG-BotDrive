@@ -15,6 +15,8 @@
     <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
 	var gWatchID = null;
 	var gCompassWatchID = null;
@@ -23,6 +25,14 @@
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
+	// Network status listeners
+	document.addEventListener("offline", onOffline, false);
+	document.addEventListener("online", onOnline, false);
+
+	function clearWatch() {
+		accelClear();
+		compassOff();
+	}
 	//
 	function onDeviceReady() {
 		alert("device ready.");
@@ -38,13 +48,15 @@
 		gCompassWatchID = navigator.compass.watchHeading(compassUpdate,
 				function (compassError) { alert('Compass error: ' + compassError.code); },
 				gOptions);
-
+		// Network Status
+		updateConnection();
+		// Device Information
+		updateDeviceInfo()
 	}
 	//
 	function onLoad() {
 		//alert("body loaded.");
-		accelClear();
-		compassOff();
+		clearWatch();
 	}
     </script>
 </head>
@@ -55,7 +67,7 @@
 	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 </div>
 
-<span onclick='accelOff()'><button class="button button-pill button-primary button-large" style="margin:0.1em">Clear Watch</button></span>
+<span onclick='clearWatch()'><button class="button button-pill button-primary button-large" style="margin:0.1em">Clear Watch</button></span>
 
 <div id=ax class="button button-block button-action button-large" style="margin:1em;">X <span id=accelX></span></div>
 
@@ -66,6 +78,18 @@
 <div id=ts class="button button-block button-primary button-large" style="margin:1em;">TS <span id=timestamp></span></div>
 
 <div id=hd class="button button-block button-pill button-primary button-large" style="margin:1em;">Heading: <span id=heading></span></div>
+
+<div id=nt class="button button-block button-primary button-large" style="margin:1em;"><span id=networktype>No network connection</span></div>
+
+<div id=ns class="button button-block button-action button-large" style="margin:1em;">Status: <span id=networkstatus>Offline</span></div>
+
+<div id=deviceInformation>
+	<div id=c class="button button-block button-royal">cordova <span id=cordova></span></div>
+	<div id=m class="button button-block button-action">model <span id=model></span></div>
+	<div id=p class="button button-block button-primary">platform <span id=platform></span></div>
+	<div id=u class="button button-block button-caution">UUID <span id=uuid>uuid</span></div>
+	<div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
+</div>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>

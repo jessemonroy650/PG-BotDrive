@@ -5,5 +5,7 @@
 		document.getElementById('heading').innerHTML = heading.magneticHeading;
 	}
 	function compassOff() {
-		navigator.compass.clearWatch(gCompassWatchID);
+		if (navigator.compass) {
+			navigator.compass.clearWatch(gCompassWatchID);
+		}
 	}

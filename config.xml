@@ -22,4 +22,6 @@
         <gap:plugin name="org.apache.cordova.device-motion" />
 		<!-- Compass, not always accurate -->
 		<gap:plugin name="org.apache.cordova.device-orientation" />
+		<!-- Network Information, if connected and how -->
+        <gap:plugin name="org.apache.cordova.network-information" />
     </widget>
