@@ -11,7 +11,5 @@
 		document.getElementById('timestamp').innerHTML = acceleration.timestamp;
 	}
 	function accelOff() {
-		if (navigator.accelerometer) {
-			navigator.accelerometer.clearWatch(gWatchID);
-		}
+		navigator.accelerometer.clearWatch(gWatchID);
 	}
