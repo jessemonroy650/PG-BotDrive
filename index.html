@@ -26,12 +26,12 @@
 	document.addEventListener("online", onOnline, false);
 	//
 	function clearWatch() {
-		accelClear();
+		accelOff();
 		compassOff();
 	}
 	//
 	function onDeviceReady() {
-		alert("device ready.");
+		//alert("device ready.");
 		// Accelerometer
 		navigator.accelerometer.getCurrentAcceleration(accelUpdate, function() {alert("Error on getCurrentAccel");});
 		gWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
