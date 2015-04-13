@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>PhoneGap Generic Test</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="buttons.css" />
+    <style>
+    body {margin:0px;font-size:large;}
+	.hidden {visibility:collapse;display:none;}
+	.expose {visibility:visible;display:block;} /* Here for completeness only. */
+	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+    </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
+    <script type="text/javascript">
+	var gWatchID = null;
+	var gCompassWatchID = null;
+	var gOptions = { frequency: 2000 };  // Update every 3 seconds
+	var gOption2 = { filter: 30 };      // degrees required to initiate a watchHeading success callback
+	//
+    // Wait for PhoneGap to load
+	document.addEventListener("deviceready", onDeviceReady, false);
+	//
+	function onDeviceReady() {
+		alert("device ready.");
+		// Accelerometer
+		navigator.accelerometer.getCurrentAcceleration(accelUpdate, function() {alert("Error on getCurrentAccel");});
+		gWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
+				function() {
+					alert("Error on watchAccel");
+				},
+				gOptions);
+		// Compass
+		navigator.compass.getCurrentHeading(compassUpdate, function (compassError) { alert('Compass error: ' + compassError.code); });
+		gCompassWatchID = navigator.compass.watchHeading(compassUpdate,
+				function (compassError) { alert('Compass error: ' + compassError.code); },
+				gOptions);
+
+	}
+	//
+	function onLoad() {
+		//alert("body loaded.");
+		accelClear();
+		compassOff();
+	}
+    </script>
+</head>
+<body onload="onLoad()">
+<div class="button button-block button-large">
+	<img align=left src=favicon-48x48.png>
+	Phonegap Generic Test
+	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+</div>
+
+<span onclick='accelOff()'><button class="button button-pill button-primary button-large" style="margin:0.1em">Clear Watch</button></span>
+
+<div id=ax class="button button-block button-action button-large" style="margin:1em;">X <span id=accelX></span></div>
+
+<div id=ay class="button button-block button-action button-large" style="margin:1em;">Y <span id=accelY></span></div>
+
+<div id=az class="button button-block button-action button-large" style="margin:1em;">Z <span id=accelZ></span></div>
+
+<div id=ts class="button button-block button-primary button-large" style="margin:1em;">TS <span id=timestamp></span></div>
+
+<div id=hd class="button button-block button-pill button-primary button-large" style="margin:1em;">Heading: <span id=heading></span></div>
+
+<div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
+    <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
+</div>
+</body>
+</html>
+
+
+
+
+
+
