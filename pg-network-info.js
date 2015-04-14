@@ -13,7 +13,7 @@ var pgNetworkInfo = {
 	    Connection.CELL    : 'Cell generic',
 	    Connection.NONE    : 'No network'
 	},
-   	var networkState = this.states[Connection.UNKNOWN];
+   	networkState = this.states[Connection.UNKNOWN],
 	//
 	onOffline : function() {
 		thePlace = document.getElementById('ns');
