@@ -13,7 +13,7 @@ var pgNetworkInfo = {
 	    Connection.CELL    : 'Cell generic',
 	    Connection.NONE    : 'No network'
 	},
-   	networkState = this.states[Connection.UNKNOWN],
+   	//networkState = this.states[Connection.UNKNOWN],
 	//
 	onOffline : function() {
 		thePlace = document.getElementById('ns');
@@ -22,7 +22,7 @@ var pgNetworkInfo = {
 		thePlace.classList.add('button-caution');
 		// Change the text to reflect the state
 		thePlace = document.getElementById('networkstatus').innerHTML = 'Offline';
-		updateConnection();
+		this.updateConnection();
     },
 	//
 	onOnline : function() {
@@ -32,11 +32,11 @@ var pgNetworkInfo = {
 		thePlace.classList.add('button-action');
 		// Change the text to reflect the state
 		thePlace = document.getElementById('networkstatus').innerHTML = 'Online';
-		updateConnection();
+		this.updateConnection();
     },
 	//
 	updateConnection : function() {
-    	networkState = navigator.connection.type;
+    	var networkState = navigator.connection.type;
 		thePlace = document.getElementById('networktype').innerHTML = this.states[networkState];
 	}
 
