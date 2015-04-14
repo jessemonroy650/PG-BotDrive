@@ -53,7 +53,8 @@
 				function (compassError) { alert('Compass error: ' + compassError.code); },
 				gOptions);
 		// Network Status
-		//pgNetworkInfo.updateConnection();
+		pgNetworkInfo.init();
+		pgNetworkInfo.updateConnection();
 		// Device Information
 		updateDeviceInfo()
 	}
