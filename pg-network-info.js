@@ -22,7 +22,7 @@ var pgNetworkInfo = {
 		thePlace.classList.add('button-caution');
 		// Change the text to reflect the state
 		thePlace = document.getElementById('networkstatus').innerHTML = 'Offline';
-		this.updateConnection();
+		//this.updateConnection();
     },
 	//
 	onOnline : function() {
@@ -32,7 +32,7 @@ var pgNetworkInfo = {
 		thePlace.classList.add('button-action');
 		// Change the text to reflect the state
 		thePlace = document.getElementById('networkstatus').innerHTML = 'Online';
-		this.updateConnection();
+		//this.updateConnection();
     },
 	//
 	updateConnection : function() {
