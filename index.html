@@ -9,12 +9,20 @@
 	.hidden {visibility:collapse;display:none;}
 	.expose {visibility:visible;display:block;} /* Here for completeness only. */
 	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+	#app-bar {margin:0;padding:0;} /* over-ride stock button definition*/
+	#app-icon {}
+	#menu-bars {height:36px;width:48px;}
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
-	var gWatchID = null;
+	var gAccelWatchID = null;
 	var gCompassWatchID = null;
 	var gOptions = { frequency: 2000 };  // Update every 3 seconds
 	var gOption2 = { filter: 30 };      // degrees required to initiate a watchHeading success callback
@@ -22,8 +30,8 @@
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// Network status listeners
-	document.addEventListener("offline", onOffline, false);
-	document.addEventListener("online", onOnline, false);
+	document.addEventListener("offline", pgNetworkInfo.onOffline, false);
+	document.addEventListener("online", pgNetworkInfo.onOnline, false);
 	//
 	function clearWatch() {
 		accelOff();
@@ -34,7 +42,7 @@
 		//alert("device ready.");
 		// Accelerometer
 		navigator.accelerometer.getCurrentAcceleration(accelUpdate, function() {alert("Error on getCurrentAccel");});
-		gWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
+		gAccelWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
 				function() {
 					alert("Error on watchAccel");
 				},
@@ -45,7 +53,7 @@
 				function (compassError) { alert('Compass error: ' + compassError.code); },
 				gOptions);
 		// Network Status
-		updateConnection();
+		pgNetworkInfo.updateConnection();
 		// Device Information
 		updateDeviceInfo()
 	}
@@ -57,13 +65,14 @@
     </script>
 </head>
 <body onload="onLoad()">
-<div class="button button-block button-large">
-	<img align=left src=favicon-48x48.png>
-	Phonegap Generic Test
-	<button onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+<div id=app-bar class="button button-block button-large">
+	<img id=app-icon  align=left  src=favicon-48x48.png>
+	PG BotDrive
+	<img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
+<button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 
-<span onclick='clearWatch()'><button class="button button-pill button-primary button-large" style="margin:0.1em">Clear Watch</button></span>
+<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Stop Accel</button>
 
 <div id=gforceInformation> <!-- aka accelerometer -->
 	<div id=ax class="button button-block button-action button-large" style="margin:0 0.5em;">X <span id=accelX></span></div>
@@ -91,10 +100,22 @@
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 </div>
 </body>
-    <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
+    <script type="text/javascript">
+	//
+	$('#app-icon').click(function(){
+		//navigator.app.exitApp();
+	});
+	$('#menu-bars').click(function(){
+		//navigator.app.exitApp();
+	});
+	//
+	$('#exitApp').click(function(){
+		navigator.app.exitApp();
+	});
+	$('#stopAccel').click(function(){
+		clearWatch();
+	});
+    </script>
 </html>
 
 
