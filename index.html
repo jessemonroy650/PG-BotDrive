@@ -11,8 +11,9 @@
 	#XYcoords {margin:20px 87px}
     </style>
     <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
-	<script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script> -->
 	<!-- <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile.custom.js"></script>
     <script type="text/javascript">
 	function onLoad() {
 		//alert("body loaded.");
@@ -29,7 +30,7 @@ padding:0.1em;
 	<span style="color:#ffffff;">Drive Stick</span>
 	<img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
-<button id="" exitApp onclick="navigator.app.exitApp()" class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+<button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 
 <button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
 <div style="margin:0;padding:0;"></div>
@@ -58,20 +59,17 @@ padding:0.1em;
 		navigator.app.exitApp();
 	});
 	//
-	$('#driveStick').on("mousedown touchstart", function(e) {
+	$('#driveStick').on("touchstart", function(e) {
 			mouseIsDown = true;
 			console.log(e);
 		});
-	$('#driveStick').on("mouseup touchend", function(e) {
+	$('#driveStick').on("touchend", function(e) {
 			mouseIsDown = false;
 			console.log(e);
 		});
-	$('#driveStick').on("mousemove", function(e) {
-			//if (mouseIsDown) {
-				$('#Xcoord').html(e.pageX);
-				$('#Ycoord').html(e.pageY);
-				//console.log(e.clientX,e.clientY);
-			//}
+	$('#driveStick').on("touchmove", function(e) {
+			$('#Xcoord').html(e.clientX);
+			$('#Ycoord').html(e.clientY);
 		});
     </script>
 </html>
