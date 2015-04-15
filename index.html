@@ -54,7 +54,8 @@ padding:0.1em;
 		alert('Menu bars');
 	});
 	$('#exitApp').click(function(){
-		alert('Exit App');
+		//alert('Exit App');
+		navigator.app.exitApp();
 	});
 	//
 	$('#driveStick').on("mousedown touchstart", function(e) {
@@ -67,9 +68,9 @@ padding:0.1em;
 		});
 	$('#driveStick').on("mousemove touchmove", function(e) {
 			//if (mouseIsDown) {
-				$('#Xcoord').text(e.clientX);
-				$('#Ycoord').text(e.clientY);
-				console.log(e.clientX,e.clientY);
+				$('#Xcoord').html(e.clientX);
+				$('#Ycoord').html(e.clientY);
+				//console.log(e.clientX,e.clientY);
 			//}
 		});
     </script>
