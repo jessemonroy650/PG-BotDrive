@@ -66,10 +66,10 @@ padding:0.1em;
 			mouseIsDown = false;
 			console.log(e);
 		});
-	$('#driveStick').on("touchmove", function(e) {
+	$('#driveStick').on("mousemove touchmove", function(e) {
 			//if (mouseIsDown) {
-				$('#Xcoord').html(e.clientX);
-				$('#Ycoord').html(e.clientY);
+				$('#Xcoord').html(e.pageX);
+				$('#Ycoord').html(e.pageY);
 				//console.log(e.clientX,e.clientY);
 			//}
 		});
