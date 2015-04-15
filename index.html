@@ -1,99 +1,43 @@
 <!DOCTYPE html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>PhoneGap Generic Test</title>
+    <title>Drive Stick</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="buttons.css" />
+    <link rel="stylesheet" href="default.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="drivestick.css" />
     <style>
-    body {margin:0px;font-size:large;}
-	.hidden {visibility:collapse;display:none;}
-	.expose {visibility:visible;display:block;} /* Here for completeness only. */
-	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
-	#app-bar {margin:0;padding:0;} /* over-ride stock button definition*/
-	#app-icon {}
-	#menu-bars {height:36px;width:48px;}
+	#XYcoords {margin:20px 87px}
     </style>
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
-
-    <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="js/jquery-1.11.1.js"></script> -->
     <script type="text/javascript">
-	var gAccelWatchID = null;
-	var gCompassWatchID = null;
-	var gOptions = { frequency: 2000 };  // Update every 3 seconds
-	var gOption2 = { filter: 30 };      // degrees required to initiate a watchHeading success callback
-	//
-    // Wait for PhoneGap to load
-	document.addEventListener("deviceready", onDeviceReady, false);
-	// Network status listeners
-	document.addEventListener("offline", onOffline, false);
-	document.addEventListener("online", onOnline, false);
-	//
-	function clearWatch() {
-		accelOff();
-		compassOff();
-	}
-	//
-	function onDeviceReady() {
-		//alert("device ready.");
-		// Accelerometer
-		navigator.accelerometer.getCurrentAcceleration(accelUpdate, function() {alert("Error on getCurrentAccel");});
-		gAccelWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
-				function() {
-					alert("Error on watchAccel");
-				},
-				gOptions);
-		// Compass
-		navigator.compass.getCurrentHeading(compassUpdate, function (compassError) { alert('Compass error: ' + compassError.code); });
-		gCompassWatchID = navigator.compass.watchHeading(compassUpdate,
-				function (compassError) { alert('Compass error: ' + compassError.code); },
-				gOptions);
-		// Network Status
-		updateConnection();
-		// Device Information
-		updateDeviceInfo()
-	}
-	//
 	function onLoad() {
 		//alert("body loaded.");
-		clearWatch();
 	}
     </script>
 </head>
 <body onload="onLoad()">
-<div id=app-bar class="button button-block button-large">
+<div id=app-bar class="" 
+style="background:linear-gradient(to bottom, #8fc400 0%,#8fc400 100%);
+height:2em;text-align:center;
+padding:0.1em;
+">
 	<img id=app-icon  align=left  src=favicon-48x48.png>
-	PG BotDrive
+	<span style="color:#ffffff;">Drive Stick</span>
 	<img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
 <button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 
-<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Stop Accel</button>
+<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
+<div style="margin:0;padding:0;"></div>
 
-<div id=gforceInformation> <!-- aka accelerometer -->
-	<div id=ax class="button button-block button-action button-large" style="margin:0 0.5em;">X <span id=accelX></span></div>
-	<div id=ay class="button button-block button-action button-large" style="margin:0 0.5em;">Y <span id=accelY></span></div>
-	<div id=az class="button button-block button-action button-large" style="margin:0 0.5em;">Z <span id=accelZ></span></div>
-	<div id=ts class="button button-block button-primary button-large" style="margin:0 0.2em;">TS <span id=timestamp></span></div>
-</div>
+<div id=XYcoords><span id=Xcoord>xcoord</span> : <span id=Ycoord>ycoord</span></div>
 
-<div id=hd class="button button-block button-pill button-primary button-large" style="margin:1em;">Heading: <span id=heading></span></div>
-
-<div id=networkInformation>
-	<div id=nt class="button button-block button-primary button-large" style="margin:0 0.2em;"><span id=networktype>No network connection</span></div>
-	<div id=ns class="button button-block button-action button-large" style="margin:0 0.2em;">Status: <span id=networkstatus>Offline</span></div>
-</div>
-
-<div id=deviceInformation>
-	<div id=c class="button button-block button-royal">cordova <span id=cordova></span></div>
-	<div id=m class="button button-block button-action">model <span id=model></span></div>
-	<div id=p class="button button-block button-primary">platform <span id=platform></span></div>
-	<div id=u class="button button-block button-caution">UUID <span id=uuid>uuid</span></div>
-	<div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
+<div id=driveStick class=driveStick>
+&nbsp;
 </div>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
@@ -101,20 +45,33 @@
 </div>
 </body>
     <script type="text/javascript">
+	var mouseIsDown = false;
 	//
 	$('#app-icon').click(function(){
-		//navigator.app.exitApp();
+		alert('App Icon');
 	});
 	$('#menu-bars').click(function(){
-		//navigator.app.exitApp();
+		alert('Menu bars');
+	});
+	$('#exitApp').click(function(){
+		alert('Exit App');
 	});
 	//
-	$('#exitApp').click(function(){
-		navigator.app.exitApp();
-	});
-	$('#stopAccel').click(function(){
-		clearWatch();
-	});
+	$('#driveStick').on("mousedown touchstart", function(e) {
+			mouseIsDown = true;
+			console.log(e);
+		});
+	$('#driveStick').on("mouseup touchend", function(e) {
+			mouseIsDown = false;
+			console.log(e);
+		});
+	$('#driveStick').on("mousemove touchmove", function(e) {
+			if (mouseIsDown) {
+				$('#Xcoord').text(e.clientX);
+				$('#Ycoord').text(e.clientY);
+				console.log(e.clientX,e.clientY);
+			}
+		});
     </script>
 </html>
 

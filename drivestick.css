@@ -1,0 +1,12 @@
+#driveStick {
+margin:60px 60px;padding:0;
+height:200px;
+width:200px;
+border-radius:100px;
+background: #a9e4f7; /* Old browsers */
+background: linear-gradient(to bottom, #a9e4f7 0%,#0fb4e7 100%); /* W3C */
+
+}
+
+.driveStick {
+}

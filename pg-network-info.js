@@ -8,7 +8,7 @@
 		thePlace.classList.remove('button-action');
 		thePlace.classList.add('button-caution');
 		// Change the text to reflect the state
-		document.getElementById('networkstatus').innerHTML = 'Offline';
+		//document.getElementById('networkstatus').innerHTML = 'Offline';
 		updateConnection();
     };
 	//
@@ -18,7 +18,7 @@
 		thePlace.classList.remove('button-caution');
 		thePlace.classList.add('button-action');
 		// Change the text to reflect the state
-		document.getElementById('networkstatus').innerHTML = 'Online';
+		//document.getElementById('networkstatus').innerHTML = 'Online';
 		updateConnection();
     };
 	//
@@ -34,7 +34,8 @@
 	    states[Connection.CELL] = "Cell generic";
 	    states[Connection.NONE] = "No network";
 
-		document.getElementById('networktype').innerHTML = states[networkState];
+		//document.getElementById('networktype').innerHTML = states[networkState];
+		document.getElementById('networkstatus').innerHTML = states[networkState];
 	};
 
 

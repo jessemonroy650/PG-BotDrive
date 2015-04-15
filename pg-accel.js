@@ -15,3 +15,14 @@
 			navigator.accelerometer.clearWatch(gAccelWatchID);
 		}
 	}
+	function accelToggle() {
+		if (navigator.accelerometer) {
+			navigator.accelerometer.clearWatch(gAccelWatchID);
+		} else {
+			gAccelWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
+				function() {
+					alert("Error on watchAccel");
+				},
+				gOptions);
+		}
+	}
