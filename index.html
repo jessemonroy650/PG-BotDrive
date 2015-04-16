@@ -33,7 +33,10 @@ padding:0.1em;
 <button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
 <div style="margin:0;padding:0;"></div>
 
-<div id=XYcoords><span id=Xcoord>xcoord</span> : <span id=Ycoord>ycoord</span></div>
+<div id=touchS>touchstart <span id=TSXcoord>xcoord</span> : <span id=TSYcoord>ycoord</span></div>
+<div id=touchE>touchend <span id=TEXcoord>xcoord</span> : <span id=TEYcoord>ycoord</span></div>
+
+<div id=XYcoords>move <span id=Xcoord>xcoord</span> : <span id=Ycoord>ycoord</span></div>
 
 <div id=driveStick class=driveStick>
 &nbsp;
@@ -58,11 +61,13 @@ padding:0.1em;
 	});
 	//
 	$('#driveStick').on("touchstart", function(e) {
-			mouseIsDown = true;
+			$('#TSXcoord').html(e.clientX);
+			$('#TSYcoord').html(e.clientY);
 			console.log(e);
 		});
 	$('#driveStick').on("touchend", function(e) {
-			mouseIsDown = false;
+			$('#TEXcoord').html(e.clientX);
+			$('#TEYcoord').html(e.clientY);
 			console.log(e);
 		});
 	$('#driveStick').on("touchmove", function(e) {
