@@ -54,10 +54,12 @@ padding:0.1em;
 	var Yc = document.getElementById('Ycoord');
 
 	driveStck.addEventListener('touchstart', function(e) {
+		e.preventDefault();
 		TSXc.innerHTML = e.pageX;
 		TSYc.innerHTML = e.pageY;
 	});
 	driveStck.addEventListener('touchend', function(e) {
+		e.preventDefault();
 		TEXc.innerHTML = e.pageX;
 		TEYc.innerHTML = e.pageY;
 	});
