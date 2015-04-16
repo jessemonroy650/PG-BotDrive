@@ -65,16 +65,20 @@ padding:0.1em;
 		e.preventDefault();
 		// http://stackoverflow.com/questions/9585487/cant-get-coordinates-of-touchevents-in-javascript-on-android-devices
 		touchS = e.touches[0];
-		TSXc.innerHTML = touchS.pageX;
-		TSYc.innerHTML = touchS.pageY;
 		Tlen.innerHTML = e.touches.length;
+		if (e.touches.length > 0) {
+			TSXc.innerHTML = touchS.pageX;
+			TSYc.innerHTML = touchS.pageY;
+		}
 	});
 	driveStck.addEventListener('touchend', function(e) {
 		e.preventDefault();
-		touchE = e.changedTouches;
-		TEXc.innerHTML = touchE.pageX;
-		TEYc.innerHTML = touchE.pageY;
+		touchE = e.changedTouches[0];
 		Tlen.innerHTML = e.touches.length;
+		if (e.touches.length > 0) {
+			TEXc.innerHTML = touchE.pageX;
+			TEYc.innerHTML = touchE.pageY;
+		}
 	});
 
 </script>
