@@ -52,16 +52,22 @@ padding:0.1em;
 	var TEYc = document.getElementById('TEYcoord');
 	var Xc = document.getElementById('Xcoord');
 	var Yc = document.getElementById('Ycoord');
+	var touch = {};
 
 	driveStck.addEventListener('touchstart', function(e) {
+		// https://developer.mozilla.org/en-US/docs/Web/API/Touch_events#Example
 		e.preventDefault();
-		TSXc.innerHTML = e.pageX;
-		TSYc.innerHTML = e.pageY;
+		// http://stackoverflow.com/questions/9585487/cant-get-coordinates-of-touchevents-in-javascript-on-android-devices
+		// https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent
+		touch = event.touches[0];
+		TSXc.innerHTML = touch.pageX;
+		TSYc.innerHTML = touch.pageY;
 	});
 	driveStck.addEventListener('touchend', function(e) {
 		e.preventDefault();
-		TEXc.innerHTML = e.pageX;
-		TEYc.innerHTML = e.pageY;
+		touch = event.touches[0];
+		TEXc.innerHTML = touch.pageX;
+		TEYc.innerHTML = touch.pageY;
 	});
 
 </script>
