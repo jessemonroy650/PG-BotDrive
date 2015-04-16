@@ -61,8 +61,8 @@ padding:0.1em;
 	});
 	//
 	$('#driveStick').on("touchstart", function(e) {
-			$('#TSXcoord').html(e.clientX);
-			$('#TSYcoord').html(e.clientY);
+			$('#TSXcoord').text(e.clientX);
+			$('#TSYcoord').text(e.clientY);
 			console.log(e);
 		});
 	$('#driveStick').on("touchend", function(e) {
@@ -71,8 +71,8 @@ padding:0.1em;
 			console.log(e);
 		});
 	$('#driveStick').on("touchmove", function(e) {
-			$('#Xcoord').html(e.clientX);
-			$('#Ycoord').html(e.clientY);
+			$('#Xcoord').text(e.clientX);
+			$('#Ycoord').text(e.clientY);
 		});
     </script>
 </html>
