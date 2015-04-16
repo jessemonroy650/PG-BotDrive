@@ -74,8 +74,8 @@ padding:0.1em;
 	driveStck.addEventListener('touchend', function(e) {
 		e.preventDefault();
 		touchE = e.changedTouches[0];
-		Tlen.innerHTML = touchE.length;
-		if (touchE.length > 0) {
+		Tlen.innerHTML = e.changedTouches.length;
+		if (e.changedTouches.length > 0) {
 			TEXc.innerHTML = touchE.pageX;
 			TEYc.innerHTML = touchE.pageY;
 		}
