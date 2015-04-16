@@ -61,8 +61,8 @@ padding:0.1em;
 	});
 	//
 	$('#driveStick').on("touchstart", function(e) {
-			$('#TSXcoord').text(e.clientX);
-			$('#TSYcoord').text(e.clientY);
+			$('#TSXcoord').text(e.pageX);
+			$('#TSYcoord').text(e.pageY);
 			console.log(e);
 		});
 	$('#driveStick').on("touchend", function(e) {
