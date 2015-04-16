@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="drivestick.css" />
     <style>
-	#XYcoords {margin:20px 87px}
     </style>
-    <!-- <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script> -->
-	<script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
     <script type="text/javascript">
 	function onLoad() {
 		//alert("body loaded.");
@@ -46,35 +43,26 @@ padding:0.1em;
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 </div>
 </body>
-    <script type="text/javascript">
-	var mouseIsDown = false;
-	//
-	$('#app-icon').click(function(){
-		alert('App Icon');
+<script type="text/javascript">
+	var driveStck = document.getElementById('driveStick');
+
+	var TSXc = document.getElementById('TSXcoord');
+	var TSYc = document.getElementById('TSYcoord');
+	var TEXc = document.getElementById('TEXcoord');
+	var TEYc = document.getElementById('TEYcoord');
+	var Xc = document.getElementById('Xcoord');
+	var Yc = document.getElementById('Ycoord');
+
+	driveStck.addEventListener('touchstart', function(e) {
+		TSXc.innerHTML = e.pageX;
+		TSYc.innerHTML = e.pageY;
 	});
-	$('#menu-bars').click(function(){
-		alert('Menu bars');
+	driveStck.addEventListener('touchend', function(e) {
+		TEXc.innerHTML = e.pageX;
+		TEYc.innerHTML = e.pageY;
 	});
-	$('#exitApp').click(function(){
-		//alert('Exit App');
-		navigator.app.exitApp();
-	});
-	//
-	$('#driveStick').on("touchstart", function(e) {
-			$('#TSXcoord').text(e.pageX);
-			$('#TSYcoord').text(e.pageY);
-			console.log(e);
-		});
-	$('#driveStick').on("touchend", function(e) {
-			$('#TEXcoord').html(e.clientX);
-			$('#TEYcoord').html(e.clientY);
-			console.log(e);
-		});
-	$('#driveStick').on("touchmove", function(e) {
-			$('#Xcoord').text(e.clientX);
-			$('#Ycoord').text(e.clientY);
-		});
-    </script>
+
+</script>
 </html>
 
 
