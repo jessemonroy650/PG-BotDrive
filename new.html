@@ -40,8 +40,7 @@ padding:0.1em;
 &nbsp;
 </div>
 <p />
-<!-- <a href=drivestick.html>drivestick</a> -->
-<a href=new.html>NEW</a>
+<a href=drivestick.html>drivestick</a>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
@@ -58,8 +57,9 @@ padding:0.1em;
 	var TEYc = document.getElementById('TEYcoord');
 	var Xc = document.getElementById('Xcoord');
 	var Yc = document.getElementById('Ycoord');
-	var touchS = {};
-	var touchE = {};
+	var touchS = {};	// touchStart
+	var touchE = {};	// touchEnd
+	var touchM = {};	// touchMove
 
 	//
 	// https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent
@@ -86,9 +86,14 @@ padding:0.1em;
 	});
 	driveStck.addEventListener('touchmove', function(e) {
 		e.preventDefault();
-		touchE = e.changedTouches[0];
-		Tlen.innerHTML = e.changedTouches.length;
-		if (e.changedTouches.length > 0) {
+		// Note: http://www.w3.org/TR/touch-events/#attributes-2
+		touchM = e.touches;
+		touchM = e.changedTouches;
+		touchM = e.targetTouches;
+		//touchE = e.changedTouches[0];
+		touchE = touchM[0];
+		Tlen.innerHTML = touchM.length;
+		if (touchG.length > 0) {
 			Xc.innerHTML = touchE.pageX;
 			Yc.innerHTML = touchE.pageY;
 		}
