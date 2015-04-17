@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="drivestick.css" />
     <style>
     </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script> -->
 	<script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
     <script type="text/javascript">
@@ -27,7 +28,7 @@ padding:0.1em;
 	<span style="color:#ffffff;">Drive Stick</span>
 	<img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
-<button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
+<button id=exitApp onclick="navigator.app.exitApp()" class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 
 <button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
 <div style="margin:0;padding:0;"></div>
