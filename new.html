@@ -31,7 +31,10 @@ padding:0.1em;
 <button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
 <div style="margin:0;padding:0;"></div>
 
-<div id=touchL>touchlength <span id=tlength>tlength</span></div>
+<div id=touchLen>touchlength <span id=tlength>tlength</span></div>
+<div id=touchChLen>changedLength <span id=clength>clength</span></div>
+<div id=touchTaLen>targetLength <span id=talength>talength</span></div>
+
 <div id=touchS>touchstart <span id=TSXcoord>xcoord</span> : <span id=TSYcoord>ycoord</span></div>
 <div id=touchE>touchend <span id=TEXcoord>xcoord</span> : <span id=TEYcoord>ycoord</span></div>
 <div id=XYcoords>move <span id=Xcoord>xcoord</span> : <span id=Ycoord>ycoord</span></div>
@@ -39,8 +42,6 @@ padding:0.1em;
 <div id=driveStick class=driveStick>
 &nbsp;
 </div>
-<p />
-<a href=drivestick.html>drivestick</a>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
@@ -49,7 +50,9 @@ padding:0.1em;
 <script type="text/javascript">
 	var driveStck = document.getElementById('driveStick');
 
-	var Tlen = document.getElementById('tlength');
+	var Tlen = document.getElementById('touchLen');
+	var Clen = document.getElementById('touchChLen');
+	var Alen = document.getElementById('touchTaLen');
 
 	var TSXc = document.getElementById('TSXcoord');
 	var TSYc = document.getElementById('TSYcoord');
@@ -88,11 +91,14 @@ padding:0.1em;
 		e.preventDefault();
 		// Note: http://www.w3.org/TR/touch-events/#attributes-2
 		touchM = e.touches;
+		Tlen.innerHTML = touchM.length;
 		touchM = e.changedTouches;
+		Clen.innerHTML = touchM.length;
 		touchM = e.targetTouches;
+		Alen.innerHTML = touchM.length;
+
 		//touchE = e.changedTouches[0];
 		touchE = touchM[0];
-		Tlen.innerHTML = touchM.length;
 		if (touchG.length > 0) {
 			Xc.innerHTML = touchE.pageX;
 			Yc.innerHTML = touchE.pageY;
