@@ -47,35 +47,14 @@ padding:0.1em;
 </div>
 </body>
     <script type="text/javascript">
-	var mouseIsDown = false;
-	//
-	$('#app-icon').click(function(){
-		alert('App Icon');
-	});
-	$('#menu-bars').click(function(){
-		alert('Menu bars');
-	});
-	$('#exitApp').click(function(){
-		//alert('Exit App');
-		navigator.app.exitApp();
-	});
 	//
 	$('#driveStick').on("touchstart", function(e) {
-			$('#TSXcoord').text(JSON.stringify(e));
-			//$('#TSYcoord').text(e.pageY);
-			//console.log(e);
-		});
-/*
-	$('#driveStick').on("touchend", function(e) {
-			$('#TEXcoord').html(e.clientX);
-			$('#TEYcoord').html(e.clientY);
-			console.log(e);
-		});
-	$('#driveStick').on("touchmove", function(e) {
-			$('#Xcoord').text(e.clientX);
-			$('#Ycoord').text(e.clientY);
-		});
-*/
+		e.preventDefault();
+		$('#TSXcoord').text(JSON.stringify(e));
+		return false;
+		//$('#TSYcoord').text(e.pageY);
+		//console.log(e);
+	});
     </script>
 </html>
 
