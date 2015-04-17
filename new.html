@@ -91,11 +91,11 @@ padding:0.1em;
 		e.preventDefault();
 		// Note: http://www.w3.org/TR/touch-events/#attributes-2
 		touchM = e.touches;
-		Tlen.innerHTML = touchM.length;
+		Tlen.innerHTML = touchM.length ? touchM.length : "-";
 		touchM = e.changedTouches;
-		Clen.innerHTML = touchM.length;
+		Clen.innerHTML = touchM.length ? touchM.length : "-";
 		touchM = e.targetTouches;
-		Alen.innerHTML = touchM.length;
+		Alen.innerHTML = touchM.length ? touchM.length : "-";
 
 		//touchE = e.changedTouches[0];
 		touchE = touchM[0];
