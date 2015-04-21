@@ -1,28 +1,56 @@
-	function accelClear() {
-		document.getElementById('accelX').innerHTML = '&nbsp;';
-		document.getElementById('accelY').innerHTML = '&nbsp;';
-		document.getElementById('accelZ').innerHTML = '&nbsp;';
-		document.getElementById('timestamp').innerHTML = '&nbsp;';
-	}
-	function accelUpdate(acceleration) {
-		document.getElementById('accelX').innerHTML = acceleration.x;
-		document.getElementById('accelY').innerHTML = acceleration.y;
-		document.getElementById('accelZ').innerHTML = acceleration.z;
-		document.getElementById('timestamp').innerHTML = acceleration.timestamp;
-	}
-	function accelOff() {
-		if (navigator.accelerometer) {
-			navigator.accelerometer.clearWatch(gAccelWatchID);
+var myAccel = {
+	//
+	WatchID : null,
+	Options : { frequency: 250 },
+	Callback : null,
+	//
+	init : function (callback, options) {
+		if (callback) {
+			myAccel.Callback = callback;
+		} else { alert("Error on myAccel.init() needs a callback."); }
+		if (options) {
+			myAccel.Options  = options;
 		}
-	}
-	function accelToggle() {
-		if (navigator.accelerometer) {
-			navigator.accelerometer.clearWatch(gAccelWatchID);
+		navigator.accelerometer.getCurrentAcceleration(myAccel.Callback,
+			function() { alert("Error on myAccel.init() getCurrent"); });
+	},
+	start : function () {
+		myAccel.WatchID = navigator.accelerometer.watchAcceleration(myAccel.Callback,
+			function() { alert("Error on myAccel.start()"); },
+			myAccel.Options);
+	},
+	stop : function () {
+		navigator.accelerometer.clearWatch(myAccel.WatchID);
+	},
+	toggle : function () {
+		if (myAccel.WatchID === null) {
+			myAccel.WatchID = myAccel.start(myAccel.Callback);
 		} else {
-			gAccelWatchID = navigator.accelerometer.watchAcceleration(accelUpdate,
-				function() {
-					alert("Error on watchAccel");
-				},
-				gOptions);
+			myAccel.stop();
+			myAccel.WatchID = null.
 		}
 	}
+};
+
+var myAccelView = {
+	ViewRefs : { 'x': null, 'y': null, 'z': null, 'ts': null},
+	//
+	init : function (x, y, z, ts) {
+		myAccelView.ViewRefs.x  = document.getElementById(x);
+		myAccelView.ViewRefs.y  = document.getElementById(y);
+		myAccelView.ViewRefs.z  = document.getElementById(z);
+		myAccel.ViewRefs.ts = document.getElementById(ts);
+	},
+	clear : function () {
+		myAccelView.ViewRefs.x.innerHTML  = '&nbsp;';
+		myAccelView.ViewRefs.y.innerHTML  = '&nbsp;';
+		myAccelView.ViewRefs.z.innerHTML  = '&nbsp;';
+		myAccel.ViewRefs.ts.innerHTML = '&nbsp;';
+	},
+	update : function(acceleration) {
+		myAccelView.ViewRefs.x.innerHTML  = acceleration.x;
+		myAccelView.ViewRefs.y.innerHTML  = acceleration.y;
+		myAccelView.ViewRefs.z.innerHTML  = acceleration.z;
+		myAccelView.ViewRefs.ts.innerHTML = acceleration.timestamp;
+	}
+};
