@@ -27,7 +27,7 @@ var myAccel = {
 			myAccel.WatchID = myAccel.start(myAccel.Callback);
 		} else {
 			myAccel.stop();
-			myAccel.WatchID = null.
+			myAccel.WatchID = null;
 		}
 	}
 };

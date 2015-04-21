@@ -13,9 +13,7 @@
     <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
-<!--
     <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>myAccelView
- -->
     <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
@@ -32,7 +30,7 @@
 	//
 	//
 	function onDeviceReady() {
-		//alert("device ready.");
+		alert("device ready.");
 		// Accelerometer
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
