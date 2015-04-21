@@ -30,7 +30,7 @@
 	//
 	//
 	function onDeviceReady() {
-		alert("device ready.");
+		//alert("device ready.");
 		// Accelerometer
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
@@ -57,9 +57,12 @@ padding:0.1em;
 	<span style="color:#ffffff;">PG BotDrive</span>
 	<img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
-<button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
-
-<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">Toggle Accel</button>
+<button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">
+	Exit
+</button>
+<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">
+	Toggle Accel
+</button>
 <div style="margin:0;padding:0;"></div>
 
 <div id=accelerometerWrapper>

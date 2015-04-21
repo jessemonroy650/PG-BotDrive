@@ -32,6 +32,12 @@ var myAccel = {
 	}
 };
 
+function roundNumber(num) {
+    var dec = 3;
+    var result = Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
+    return result;
+};
+
 var myAccelView = {
 	ViewRefs : { 'x': null, 'y': null, 'z': null, 'ts': null},
 	//
@@ -39,18 +45,18 @@ var myAccelView = {
 		myAccelView.ViewRefs.x  = document.getElementById(x);
 		myAccelView.ViewRefs.y  = document.getElementById(y);
 		myAccelView.ViewRefs.z  = document.getElementById(z);
-		myAccel.ViewRefs.ts = document.getElementById(ts);
+		myAccelView.ViewRefs.ts = document.getElementById(ts);
 	},
 	clear : function () {
 		myAccelView.ViewRefs.x.innerHTML  = '&nbsp;';
 		myAccelView.ViewRefs.y.innerHTML  = '&nbsp;';
 		myAccelView.ViewRefs.z.innerHTML  = '&nbsp;';
-		myAccel.ViewRefs.ts.innerHTML = '&nbsp;';
+		myAccelView.ViewRefs.ts.innerHTML = '&nbsp;';
 	},
 	update : function(acceleration) {
-		myAccelView.ViewRefs.x.innerHTML  = acceleration.x;
-		myAccelView.ViewRefs.y.innerHTML  = acceleration.y;
-		myAccelView.ViewRefs.z.innerHTML  = acceleration.z;
-		myAccelView.ViewRefs.ts.innerHTML = acceleration.timestamp;
+		myAccelView.ViewRefs.x.innerHTML  = roundNumber(acceleration.x);
+		myAccelView.ViewRefs.y.innerHTML  = roundNumber(acceleration.y;
+		myAccelView.ViewRefs.z.innerHTML  = roundNumber(acceleration.z);
+		myAccelView.ViewRefs.ts.innerHTML = roundNumber(acceleration.timestamp);
 	}
 };
