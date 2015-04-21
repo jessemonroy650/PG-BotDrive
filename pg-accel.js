@@ -55,7 +55,7 @@ var myAccelView = {
 	},
 	update : function(acceleration) {
 		myAccelView.ViewRefs.x.innerHTML  = roundNumber(acceleration.x);
-		myAccelView.ViewRefs.y.innerHTML  = roundNumber(acceleration.y;
+		myAccelView.ViewRefs.y.innerHTML  = roundNumber(acceleration.y);
 		myAccelView.ViewRefs.z.innerHTML  = roundNumber(acceleration.z);
 		myAccelView.ViewRefs.ts.innerHTML = roundNumber(acceleration.timestamp);
 	}
