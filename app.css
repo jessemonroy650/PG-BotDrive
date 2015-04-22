@@ -1,14 +1,18 @@
-#app-bar {margin:0;padding:0;} /* over-ride stock button definition*/
+#app-bar {
+background-color:#8fc400;
+height:2em;text-align:center;
+padding:0.1em;
+}
 #app-icon {}
 #menu-bars {height:36px;width:48px;}
 /* main body visuals */
 #accelerometerWrapper {margin:0 2%;padding:0;}
 #visualArrows {
-width:40%;
+width:45%;
 height:9em;
 display:inline-block;
 vertical-align:top;
-background:linear-gradient(to bottom, #8fc400 0%,#8fc400 100%);
+background-color:#8fc400;
 border:solid 3px black;
 box-sizing:border-box;
 }

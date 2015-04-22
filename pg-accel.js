@@ -7,12 +7,11 @@ var myAccel = {
 	init : function (callback, options) {
 		if (callback) {
 			myAccel.Callback = callback;
-		} else { alert("Error on myAccel.init() needs a callback."); }
+		} else { alert("Error on myAccel.init() needs a callback."); return; }
 		if (options) {
 			myAccel.Options  = options;
 		}
-		navigator.accelerometer.getCurrentAcceleration(myAccel.Callback,
-			function() { alert("Error on myAccel.init() getCurrent"); });
+		myAccel.WatchID = myAccel.start(myAccel.Callback);
 	},
 	start : function () {
 		myAccel.WatchID = navigator.accelerometer.watchAcceleration(myAccel.Callback,
