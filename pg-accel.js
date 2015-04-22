@@ -22,7 +22,7 @@ var myAccel = {
 		navigator.accelerometer.clearWatch(myAccel.WatchID);
 	},
 	toggle : function () {
-		if (myAccel.WatchID === null) {
+		if (myAccel.WatchID == null) {
 			myAccel.WatchID = myAccel.start(myAccel.Callback);
 		} else {
 			myAccel.stop();
