@@ -13,7 +13,7 @@
     <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>myAccelView
+    <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
@@ -60,7 +60,7 @@ padding:0.1em;
 <button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">
 	Exit
 </button>
-<button id=stopAccel class="button button-pill button-primary button-large" style="margin:0.1em">
+<button id=toggleAccel class="button button-pill button-primary button-large" style="margin:0.1em">
 	Toggle Accel
 </button>
 <div style="margin:0;padding:0;"></div>
@@ -105,7 +105,7 @@ padding:0.1em;
 	$('#exitApp').click(function(){
 		navigator.app.exitApp();
 	});
-	$('#stopAccel').click(function(){
+	$('#toggleAccel').click(function(){
 		myAccel.toggle();
 	});
     </script>
