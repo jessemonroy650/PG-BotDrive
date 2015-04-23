@@ -14,9 +14,11 @@ var myAccel = {
 		myAccel.WatchID = myAccel.start();
 	},
 	start : function () {
-		myAccel.WatchID = navigator.accelerometer.watchAcceleration(myAccel.Callback,
-			function() { alert("Error on myAccel.start()"); },
-			myAccel.Options);
+		if (navigator.accelerometer) {
+			myAccel.WatchID = navigator.accelerometer.watchAcceleration(myAccel.Callback,
+				function() { alert("Error on myAccel.start()"); },
+				myAccel.Options);
+		}
 	},
 	stop : function () {
 		navigator.accelerometer.clearWatch(myAccel.WatchID);
