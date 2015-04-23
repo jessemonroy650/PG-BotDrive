@@ -29,7 +29,7 @@ function initNavBot(botnum) {
 function driveBot(a) {
 	// Formerly this. 'trigger' was tied to touchManager
     /* if ((botNavigate.dead == 1) && (trigger == 1)) { */
-	console.log("botNavigate: entered");
+	//console.log("botNavigate: entered");
 
     if (botNavigate.dead == 1) {
         botNavigate.stop = 1;
@@ -77,5 +77,5 @@ function driveBot(a) {
         botNavigate.stop = 1;
         botNavigate.dead = 1;
     }
-	console.log("botNavigate:" + botNavigate);
+	//console.log("botNavigate:" + botNavigate);
 }
