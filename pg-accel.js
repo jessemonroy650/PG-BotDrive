@@ -11,7 +11,7 @@ var myAccel = {
 		if (options) {
 			myAccel.Options  = options;
 		}
-		myAccel.WatchID = myAccel.start();
+		myAccel.start();
 	},
 	start : function () {
 		if (navigator.accelerometer) {
@@ -22,15 +22,13 @@ var myAccel = {
 	},
 	stop : function () {
 		navigator.accelerometer.clearWatch(myAccel.WatchID);
+		myAccel.WatchID = null;
 	},
 	toggle : function () {
 		if (myAccel.WatchID == null) {
-			myAccel.WatchID = myAccel.start();
-alert('accel start');
+			myAccel.start();
 		} else {
 			myAccel.stop();
-			myAccel.WatchID = null;
-alert('accel stop');
 		}
 	}
 };
