@@ -31,10 +31,10 @@ function driveBot(a) {
     /* if ((botNavigate.dead == 1) && (trigger == 1)) { */
 	//console.log("botNavigate: entered");
 
-    if (botNavigate.dead == 1) {
-        botNavigate.stop = 1;
-        return;
-    }
+    #if (botNavigate.dead == 1) {
+    #    botNavigate.stop = 1;
+    #    return;
+    #}
 
     coordX = roundNumber(a.x);
     coordY = roundNumber(a.y);
