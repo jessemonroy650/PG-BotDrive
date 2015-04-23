@@ -3,7 +3,6 @@
 */
 var connectionInfo = {
 	networkState : null,
-	states : {},
 	//
 	offline : function () {
 		thePlace = document.getElementById('nt');
@@ -21,8 +20,8 @@ var connectionInfo = {
     },
 	//
 	updateConnection : function () {
-		networkState = navigator.connection.type;
-		//var states = {};
+		connectionInfo.networkState = navigator.connection.type;
+		var states = {};
 		states[Connection.UNKNOWN]  = "Unknown";
 	    states[Connection.ETHERNET] = "Ethernet";
     	states[Connection.WIFI]     = "WiFi";
@@ -32,6 +31,6 @@ var connectionInfo = {
 	    states[Connection.CELL] = "Cell generic";
 	    states[Connection.NONE] = "No network";
 
-		document.getElementById('networktype').innerHTML = states[networkState];
+		document.getElementById('networktype').innerHTML = states[connectionInfo.networkState];
 	}
 };
