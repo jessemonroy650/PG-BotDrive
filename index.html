@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="app.css" />
     <style>
+
+table {
+margin:3px;
+width:100px;
+border:0;
+background-color:lightgreen;
+border-radius:5px;
+}
+
+td {
+font-size:x-large;
+}
+
+td > img {
+width:20px;
+height:20px;
+}
+
+
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
@@ -16,6 +35,10 @@
     <script type="text/javascript" charset="utf-8" src="pg-connection-info.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="botNav.js"></script>
+    <script type="text/javascript" charset="utf-8" src="botSim.js"></script>
+
     <script type="text/javascript">
 
 	//
@@ -27,6 +50,9 @@
 	//
 	function updateAccel(accelData) {
 		myAccelView.update(accelData);
+		driveBot(accelData);
+		//botSimulateView.update();
+		simulateDriveBot();
 	}
 	//
 	//
@@ -62,7 +88,45 @@
 <div style="margin:0;padding:0;"></div>
 
 <div id=accelerometerWrapper>
-	<div id=visualArrows></div>
+
+	<div id=visualArrows>
+
+<table align=left cellpadding=0 cellspacing=0 border=0>
+<tr>
+<td>&nbsp;
+<td>&nbsp;
+<td><img id=d1 src=i/i0.png>
+<td>&nbsp;
+<td>&nbsp;
+<tr>
+<td>&nbsp;
+<td>&nbsp;
+<td><img id=d2 src=i/i0.png>
+<td>&nbsp;
+<td>&nbsp;
+<tr>
+<td><img id=d3 src=i/i0.png>
+<td><img id=d4 src=i/i0.png>
+<td><img id=d5 src=i/i0.png>
+<td><img id=d6 src=i/i0.png>
+<td><img id=d7 src=i/i0.png>
+<tr>
+<td>&nbsp;
+<td>&nbsp;
+<td><img id=d8 src=i/i0.png>
+<td>&nbsp;
+<td>&nbsp;
+<tr>
+<td>&nbsp;
+<td>&nbsp;
+<td><img id=d9 src=i/i0.png>
+<td>&nbsp;
+<td>&nbsp;
+</table>
+
+
+	</div>
+
 	<div id=gforceInformation> <!-- aka accelerometer -->
 		<div id=ax class="button button-block button-action button-large buttonOverride" >X <span id=accelX></span></div>
 		<div id=ay class="button button-block button-action button-large" >Y <span id=accelY></span></div>
