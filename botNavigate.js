@@ -2,30 +2,6 @@
 //
 //
 
-var trigger = {
-    left : 3.0,
-    right: -3.0,
-    ystop: 8.0,
-    yminforward: 0,
-    ymaxforward: 5,
-    zminforward: 8,
-    yfatal: 0,
-    zfatal: 0
-}
-
-var botNavigate = {
-    left    : 0,
-    right   : 0,
-    forward : 0,
-    backward : 0,
-    stop    : 0,
-    dead    : 0
-}
-
-function initNavBot(botnum) {
-    botNumber = botnum
-}
-
 function driveBot(a) {
 	// Formerly this. 'trigger' was tied to touchManager
     /* if ((botNavigate.dead == 1) && (trigger == 1)) { */

@@ -41,6 +41,28 @@ height:20px;
 
     <script type="text/javascript">
 
+var trigger = {
+    left : 3.0,
+    right: -3.0,
+    ystop: 8.0,
+    yminforward: 0,
+    ymaxforward: 5,
+    zminforward: 8,
+    yfatal: 0,
+    zfatal: 0
+}
+
+
+var botNavigate = {
+    left    : 0,
+    right   : 0,
+    forward : 0,
+    backward : 0,
+    stop    : 0,
+    dead    : 0
+}
+
+
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
