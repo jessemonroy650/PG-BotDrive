@@ -7,8 +7,6 @@
 		// flip the button color
 		thePlace.classList.remove('button-action');
 		thePlace.classList.add('button-caution');
-		// Change the text to reflect the state
-		//document.getElementById('networkstatus').innerHTML = 'Offline';
 		updateConnection();
     };
 	//
@@ -17,8 +15,6 @@
 		// flip the button color
 		thePlace.classList.remove('button-caution');
 		thePlace.classList.add('button-action');
-		// Change the text to reflect the state
-		//document.getElementById('networkstatus').innerHTML = 'Online';
 		updateConnection();
     };
 	//
@@ -34,8 +30,5 @@
 	    states[Connection.CELL] = "Cell generic";
 	    states[Connection.NONE] = "No network";
 
-		//document.getElementById('networktype').innerHTML = states[networkState];
-		document.getElementById('networkstatus').innerHTML = states[networktype];
+		document.getElementById('networktype').innerHTML = states[networkState];
 	};
-
-
