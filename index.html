@@ -17,6 +17,21 @@
     <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
+	// http://stackoverflow.com/questions/7042611/override-console-log-for-production
+	myConsole = document.getElementById("dbug_console");
+	var dbug_console = null;
+	var console = {};
+	var theArgs = "";
+	// http://stackoverflow.com/questions/4116608/pass-unknown-number-of-arguments-into-javascript-function
+	console.log = function() {
+		theArgs = "";
+		for (var i = 0; i < arguments.length; i++) {
+			 theArgs = theArgs + JSON.stringify(arguments[i]) + ',' ;
+		}
+		dbug_console.innerHTML = theArgs + "\n" + myConsole.innerHTML;
+	};
+	window.console = console;
+
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -88,6 +103,9 @@ console.log("device info");
 	<div id=u class="button button-block button-caution">UUID <span id=uuid>uuid</span></div>
 	<div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
 </div>
+
+<pre id=dbug_console>
+</pre>
 
 <div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
