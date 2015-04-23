@@ -26,9 +26,11 @@ var myAccel = {
 	toggle : function () {
 		if (myAccel.WatchID == null) {
 			myAccel.WatchID = myAccel.start();
+alert('accel start');
 		} else {
 			myAccel.stop();
 			myAccel.WatchID = null;
+alert('accel stop');
 		}
 	}
 };
