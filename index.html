@@ -13,17 +13,17 @@
     <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
 
     <script type="text/javascript" charset="utf-8" src="pg-accel.js"></script>
+    <script type="text/javascript" charset="utf-8" src="pg-connection-info.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-compass.js"></script>
     <script type="text/javascript" charset="utf-8" src="pg-device-info.js"></script>
-    <script type="text/javascript" charset="utf-8" src="pg-network-info.js"></script>
     <script type="text/javascript">
 
 	//
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// Network status listeners
-	document.addEventListener("offline", onOffline, false);
-	document.addEventListener("online", onOnline, false);
+	document.addEventListener("offline", connectionInfo.onOffline, false);
+	document.addEventListener("online", connectionInfo.onOnline, false);
 	//
 	function updateAccel(accelData) {
 		myAccelView.update(accelData);
@@ -31,19 +31,15 @@
 	//
 	//
 	function onDeviceReady() {
-alert("device ready.");
 		//alert("device ready.");
 		// Accelerometer
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
 		myAccelView.clear();
 		// Network Status
-		updateConnection();
-/*
+		connection_info.updateConnection();
 		// Device Information
 		//updateDeviceInfo()
-console.log("device info");
-*/
 	}
 	//
 	function onLoad() {
@@ -109,7 +105,7 @@ console.log("device info");
 		navigator.app.exitApp();
 	});
 	$('#toggleAccel').click(function(){
-console.log("toggle Accel");
+alert("toggle Accel");
 		myAccel.toggle();
 	});
     </script>
