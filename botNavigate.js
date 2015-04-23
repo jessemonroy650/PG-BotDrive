@@ -27,7 +27,10 @@ function initNavBot(botnum) {
 }
 
 function driveBot(a) {
-    if ((botNavigate.dead == 1) && (trigger == 1)) {
+	// Formerly this. 'trigger' was tied to touchManager
+    /* if ((botNavigate.dead == 1) && (trigger == 1)) { */
+
+    if (botNavigate.dead == 1) {
         botNavigate.stop = 1;
         return;
     }
@@ -47,14 +50,14 @@ function driveBot(a) {
         botNavigate.right = 0;
     }
     // Z maxes at horizon, then rotates to negative.
-    // Y effectively counter-rotates; it's 90Â° off of Z.
+    // Y effectively counter-rotates; it's 90° off of Z.
     if (((coordY > trigger.yminforward) && (coordY < trigger.ymaxforward)) || 
           (coordZ > trigger.zminforward)) {
         botNavigate.forward  = 1;
     } else {
         botNavigate.forward  = 0;
     }
-    // The top is pointing straight up, almost 90Â° to the horizon.
+    // The top is pointing straight up, almost 90° to the horizon.
     if (coordY > trigger.ystop) {
         botNavigate.stop = 1;
     } else {
@@ -68,7 +71,7 @@ function driveBot(a) {
     } else {
         botNavigate.stop = 0;
     }
-    // It's upside down; the face is point down at about a 45Â° angle.
+    // It's upside down; the face is point down at about a 45° angle.
     if (coordZ < trigger.zfatal) {
         botNavigate.stop = 1;
         botNavigate.dead = 1;
