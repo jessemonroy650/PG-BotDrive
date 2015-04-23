@@ -22,8 +22,8 @@
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// Network status listeners
-	document.addEventListener("offline", connectionInfo.onOffline, false);
-	document.addEventListener("online", connectionInfo.onOnline, false);
+	document.addEventListener("offline", connectionInfo.offline, false);
+	document.addEventListener("online", connectionInfo.online, false);
 	//
 	function updateAccel(accelData) {
 		myAccelView.update(accelData);
