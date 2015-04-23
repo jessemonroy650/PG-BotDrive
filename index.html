@@ -45,12 +45,13 @@
 	//
 	//
 	function onDeviceReady() {
+console.log("device ready.");
 		//alert("device ready.");
 		// Accelerometer
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
-		myAccelView.clear();
 console.log("accel started");
+		myAccelView.clear();
 		// Compass
 		// Network Status
 		updateConnection();
