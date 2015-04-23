@@ -11,7 +11,7 @@ var myAccel = {
 		if (options) {
 			myAccel.Options  = options;
 		}
-		myAccel.start();
+		//myAccel.start();
 	},
 	start : function () {
 		if (navigator.accelerometer) {
