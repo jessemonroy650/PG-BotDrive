@@ -31,11 +31,12 @@
 	//
 	//
 	function onDeviceReady() {
-console.log("device ready.");
+alert("device ready.");
 		//alert("device ready.");
 		// Accelerometer
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
+/*
 console.log("accel started");
 		myAccelView.clear();
 		// Compass
@@ -45,11 +46,11 @@ console.log("network update");
 		// Device Information
 		//updateDeviceInfo()
 console.log("device info");
+*/
 	}
 	//
 	function onLoad() {
 		//alert("body loaded.");
-		onDeviceReady();
 	}
     </script>
 </head>
