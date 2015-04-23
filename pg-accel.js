@@ -11,7 +11,7 @@ var myAccel = {
 		if (options) {
 			myAccel.Options  = options;
 		}
-		myAccel.WatchID = myAccel.start(myAccel.Callback);
+		myAccel.WatchID = myAccel.start();
 	},
 	start : function () {
 		myAccel.WatchID = navigator.accelerometer.watchAcceleration(myAccel.Callback,
@@ -19,11 +19,13 @@ var myAccel = {
 			myAccel.Options);
 	},
 	stop : function () {
+		alert('stop accel');
 		navigator.accelerometer.clearWatch(myAccel.WatchID);
+		alert('stop accel - done');
 	},
 	toggle : function () {
 		if (myAccel.WatchID == null) {
-			myAccel.WatchID = myAccel.start(myAccel.Callback);
+			myAccel.WatchID = myAccel.start();
 		} else {
 			myAccel.stop();
 			myAccel.WatchID = null;
