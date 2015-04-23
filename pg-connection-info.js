@@ -4,22 +4,7 @@
 var connectionInfo = {
 	networkState : null,
 	//
-	offline : function () {
-		thePlace = document.getElementById('nt');
-		// flip the button color
-		thePlace.classList.remove('button-action');
-		thePlace.classList.add('button-caution');
-		connectionInfo.updateConnection();
-    },
-	//
-	online : function () {
-		thePlace = document.getElementById('nt');
-		thePlace.classList.remove('button-caution');
-		thePlace.classList.add('button-action');
-		connectionInfo.updateConnection();
-    },
-	//
-	updateConnection : function () {
+	getState : function () {
 		connectionInfo.networkState = navigator.connection.type;
 		var states = {};
 		states[Connection.UNKNOWN]  = "Unknown";
@@ -28,9 +13,32 @@ var connectionInfo = {
 	    states[Connection.CELL_2G]  = "Cell 2G";
 	    states[Connection.CELL_3G]  = "Cell 3G";
     	states[Connection.CELL_4G]  = "Cell 4G";
-	    states[Connection.CELL] = "Cell generic";
-	    states[Connection.NONE] = "No network";
+	    states[Connection.CELL]     = "Cell generic";
+	    states[Connection.NONE]     = "No network";
 
-		document.getElementById('networktype').innerHTML = states[connectionInfo.networkState];
+		return states[connectionInfo.networkState];
 	}
 };
+
+var connectionView = {
+	//
+	offline : function () {
+		thePlace = document.getElementById('nt');
+		// flip the button color
+		thePlace.classList.remove('button-action');
+		thePlace.classList.add('button-caution');
+		connectionView.updateConnection();
+    },
+	//
+	online : function () {
+		thePlace = document.getElementById('nt');
+		thePlace.classList.remove('button-caution');
+		thePlace.classList.add('button-action');
+		connectionView.updateConnection();
+    },
+	//
+	updateConnection : function () {
+		document.getElementById('networktype').innerHTML = connectionInfo.getState();
+	}
+};
+
