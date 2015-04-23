@@ -39,7 +39,7 @@
 		// Network Status
 		connectionView.updateConnection();
 		// Device Information
-		//updateDeviceInfo()
+		updateDeviceInfo()
 	}
 	//
 	function onLoad() {
@@ -75,7 +75,6 @@
 
 <div id=networkInformation>
 	<div id=nt class="button button-block button-caution button-large" style="margin:0 0.2em;"><span id=networktype>No network connection</span></div>
-	<!-- <div id=ns class="button button-block button-action button-large" style="margin:0 0.2em;">Status: <span id=networkstatus>Offline</span></div> -->
 </div>
 
 <div id=deviceInformation class="hidden">
@@ -95,7 +94,7 @@
     <script type="text/javascript">
 	//
 	$('#app-icon').click(function(){
-		//navigator.app.exitApp();
+		$('#deviceInformation').toggleClass("hidden");
 	});
 	$('#menu-bars').click(function(){
 		//navigator.app.exitApp();
@@ -105,7 +104,6 @@
 		navigator.app.exitApp();
 	});
 	$('#toggleAccel').click(function(){
-alert("toggle Accel");
 		myAccel.toggle();
 	});
     </script>
