@@ -35,11 +35,14 @@
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
 		myAccelView.clear();
+console.log("accel started");
 		// Compass
 		// Network Status
 		updateConnection();
+console.log("network update");
 		// Device Information
 		updateDeviceInfo()
+console.log("device info");
 	}
 	//
 	function onLoad() {

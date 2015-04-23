@@ -19,9 +19,7 @@ var myAccel = {
 			myAccel.Options);
 	},
 	stop : function () {
-		alert('stop accel');
 		navigator.accelerometer.clearWatch(myAccel.WatchID);
-		alert('stop accel - done');
 	},
 	toggle : function () {
 		if (myAccel.WatchID == null) {
