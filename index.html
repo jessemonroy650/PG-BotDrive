@@ -22,8 +22,8 @@
     // Wait for PhoneGap to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// Network status listeners
-	//document.addEventListener("offline", onOffline, false);
-	//document.addEventListener("online", onOnline, false);
+	document.addEventListener("offline", onOffline, false);
+	document.addEventListener("online", onOnline, false);
 	//
 	function updateAccel(accelData) {
 		myAccelView.update(accelData);
@@ -37,7 +37,6 @@ alert("device ready.");
 		myAccel.init(updateAccel);
 		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
 		myAccelView.clear();
-		// Compass
 		// Network Status
 		updateConnection();
 /*
