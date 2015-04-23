@@ -3,7 +3,7 @@
 */
 	//
 	function onOffline() {
-		thePlace = document.getElementById('ns');
+		thePlace = document.getElementById('nt');
 		// flip the button color
 		thePlace.classList.remove('button-action');
 		thePlace.classList.add('button-caution');
@@ -13,7 +13,7 @@
     };
 	//
 	function onOnline() {
-		thePlace = document.getElementById('ns');
+		thePlace = document.getElementById('nt');
 		// flip the button color
 		thePlace.classList.remove('button-caution');
 		thePlace.classList.add('button-action');
@@ -35,7 +35,7 @@
 	    states[Connection.NONE] = "No network";
 
 		//document.getElementById('networktype').innerHTML = states[networkState];
-		document.getElementById('networkstatus').innerHTML = states[networkState];
+		document.getElementById('networkstatus').innerHTML = states[networktype];
 	};
 
 
