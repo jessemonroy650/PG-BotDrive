@@ -72,7 +72,8 @@ var botNavigate = {
 	//
 	function updateAccel(accelData) {
 		myAccelView.update(accelData);
-	xxx.innerHTML = (JSON.stringify(accelData)) + xxx.innerHTML;
+	var xyz = document.getElementById("dbug_console");
+	xyz.innerHTML = (JSON.stringify(accelData)) + xxx.innerHTML;
 
 		driveBot(accelData);
 		//botSimulate.viewUpdate();
