@@ -45,5 +45,4 @@ function driveBot(a) {
         botNavigate.stop = 1;
         botNavigate.dead = 1;
     }
-	alert(JSON.stringify(botNavigate));
 };

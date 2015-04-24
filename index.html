@@ -62,6 +62,7 @@ var botNavigate = {
     dead    : 0
 }
 
+var deadman = 0;
 
 	//
     // Wait for PhoneGap to load
@@ -74,7 +75,7 @@ var botNavigate = {
 		myAccelView.update(accelData);
 		driveBot(accelData);
 		//botSimulate.viewUpdate();
-		//simulateDriveBot();
+		simulateDriveBot();
 	}
 	//
 	//
