@@ -58,6 +58,6 @@ var myAccelView = {
 		myAccelView.ViewRefs.x.innerHTML  = roundNumber(acceleration.x);
 		myAccelView.ViewRefs.y.innerHTML  = roundNumber(acceleration.y);
 		myAccelView.ViewRefs.z.innerHTML  = roundNumber(acceleration.z);
-		myAccelView.ViewRefs.ts.innerHTML = roundNumber(acceleration.timestamp);
+		myAccelView.ViewRefs.ts.innerHTML = acceleration.timestamp.substr(0,8);
 	}
 };

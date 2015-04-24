@@ -1,0 +1,50 @@
+.arrowsWrapper {
+width:45%;
+}
+.table {
+display:table;
+width:90%;
+min-width:80%;
+margin:0;
+}
+.tr {display:table-row;width:100%;}
+.tr:hover {background-color:#EEE8AA; /* #FF69B4 Hot Pink - Thanks Paul */}
+.th {
+display:table-cell;
+min-width:20%;
+width:20%;
+text-align:center;
+/* border:solid black 1px; */
+overflow:auto;
+font-weight:bold;
+background-color:#aaddaa;
+padding:0.25em;
+}
+.td {
+display:table-cell;
+max-width:300px; /* This is a hack */
+width:20%;
+text-align:center;
+/* border:solid black 1px; */
+overflow:auto;
+padding:0.25em;
+}
+.td:hover {background-color:#FFD700; /* Gold */}
+
+.arw {height:20px;width:20px;}
+
+@media only screen and (min-width:321px) and (max-width:600px) {
+.table {display:table;width:90%; margin:1em 2% 3em 5%;}
+.tr {display:table-row;min-width:100%;}
+.th {min-width:150px;font-size:medium;} /* This is a hack */
+.td {min-width:150px;font-size:medium;} /* This is a hack */
+.arw {height:15px;width:15px;}
+}
+
+@media only screen and (max-width:320px) {
+.table {display:table; margin:1em 2% 3em 5%;}
+.tr {display:table-row;min-width:100%;padding:0;}
+.th {display:table-cell;font-size:small;padding:0;}
+.td {display:table-cell;font-size:small;padding:0;}
+.arw {height:15px;width:15px;}
+}

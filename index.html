@@ -6,26 +6,8 @@
     <link rel="stylesheet" href="buttons.css" />
     <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="navsim.css" />
     <style>
-
-table {
-margin:3px;
-width:100px;
-border:0;
-background-color:lightgreen;
-border-radius:5px;
-}
-
-td {
-font-size:x-large;
-}
-
-td > img {
-width:20px;
-height:20px;
-}
-
-
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
@@ -50,7 +32,7 @@ var trigger = {
     zminforward: 8,
     yfatal: 0,
     zfatal: 0
-}
+};
 
 
 var botNavigate = {
@@ -60,7 +42,7 @@ var botNavigate = {
     backward : 0,
     stop    : 0,
     dead    : 0
-}
+};
 
 var deadman = 0;
 
@@ -93,10 +75,6 @@ var deadman = 0;
 	//
 	function onLoad() {
 		//alert("body loaded.");
-var a="onLoad";
-	var xxx = document.getElementById("dbug_console");
-	xxx.innerHTML = (JSON.stringify(a)) + xxx.innerHTML;
-
 	}
     </script>
 </head>
@@ -116,42 +94,14 @@ var a="onLoad";
 
 <div id=accelerometerWrapper>
 
-	<div id=visualArrows>
-
-<table align=left cellpadding=0 cellspacing=0 border=0>
-<tr>
-<td>&nbsp;
-<td>&nbsp;
-<td><img id=d1 src=i/i0.png>
-<td>&nbsp;
-<td>&nbsp;
-<tr>
-<td>&nbsp;
-<td>&nbsp;
-<td><img id=d2 src=i/i0.png>
-<td>&nbsp;
-<td>&nbsp;
-<tr>
-<td><img id=d3 src=i/i0.png>
-<td><img id=d4 src=i/i0.png>
-<td><img id=d5 src=i/i0.png>
-<td><img id=d6 src=i/i0.png>
-<td><img id=d7 src=i/i0.png>
-<tr>
-<td>&nbsp;
-<td>&nbsp;
-<td><img id=d8 src=i/i0.png>
-<td>&nbsp;
-<td>&nbsp;
-<tr>
-<td>&nbsp;
-<td>&nbsp;
-<td><img id=d9 src=i/i0.png>
-<td>&nbsp;
-<td>&nbsp;
-</table>
-
-
+	<div id=visualArrows class=arrowsWrapper>
+		<div id=table0 class=table>
+			<div id=row1 class=tr><div class=td></div><div class=td></div><div class=td><img id=d1 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
+			<div id=row2 class=tr><div class=td></div><div class=td></div><div class=td><img id=d2 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
+			<div id=row3 class=tr><div class=td><img id=d3 class=arw src=i/iL.png></div><div class=td><img id=d4 class=arw src=i/iL.png></div><div class=td><img id=d5 class=arw src=i/i0.png></div><div class=td><img id=d6 class=arw src=i/iR.png></div><div class=td><img id=d7 class=arw src=i/iR.png></div></div>
+			<div id=row4 class=tr><div class=td></div><div class=td></div><div class=td><img id=d8 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
+			<div id=row5 class=tr><div class=td></div><div class=td></div><div class=td><img id=d9 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
+		</div>
 	</div>
 
 	<div id=gforceInformation> <!-- aka accelerometer -->

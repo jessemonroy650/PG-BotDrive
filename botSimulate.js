@@ -1,7 +1,7 @@
 ///
 ///
 ///
-function  simulateDriveBot() {
+function simulateDriveBot() {
 
     if ((botNavigate.stop) || (botNavigate.dead) || (deadman == 1)) {
         document.getElementById('d1').src = 'i/i0.png';
