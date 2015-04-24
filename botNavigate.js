@@ -3,18 +3,7 @@
 //
 
 function driveBot(a) {
-	// Formerly this. 'trigger' was tied to touchManager
-    /* if ((botNavigate.dead == 1) && (trigger == 1)) { */
-	//console.log("botNavigate: entered");
-/*
-    #if (botNavigate.dead == 1) {
-    #    botNavigate.stop = 1;
-    #    return;
-    #}
-*/
-	//xxx = document.getElementById("dbug_console");
-	xxx.innerHTML = (JSON.stringify(a)) + xxx.innerHTML;
-
+alert(a);
     coordX = roundNumber(a.x);
     coordY = roundNumber(a.y);
     coordZ = roundNumber(a.z);
@@ -56,5 +45,4 @@ function driveBot(a) {
         botNavigate.stop = 1;
         botNavigate.dead = 1;
     }
-	//console.log("botNavigate:" + botNavigate);
-}
+};
