@@ -71,8 +71,6 @@ var botNavigate = {
 	document.addEventListener("online", connectionView.online, false);
 	//
 	function updateAccel(accelData) {
-	var xxx = document.getElementById("dbug_console");
-	xxx.innerHTML = (JSON.stringify(a)) + xxx.innerHTML;
 		myAccelView.update(accelData);
 
 		driveBot(accelData);
