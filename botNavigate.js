@@ -12,9 +12,6 @@ function driveBot(a) {
     #    return;
     #}
 
-	var xxx = document.getElementById("dbug_console");
-	xxx.innerHTML = (JSON.stringify(a)) + xxx.innerHTML;
-
     coordX = roundNumber(a.x);
     coordY = roundNumber(a.y);
     coordZ = roundNumber(a.z);
