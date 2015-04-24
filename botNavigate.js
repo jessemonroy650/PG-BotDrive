@@ -3,7 +3,7 @@
 //
 
 function driveBot(a) {
-alert(a);
+
     coordX = roundNumber(a.x);
     coordY = roundNumber(a.y);
     coordZ = roundNumber(a.z);
@@ -45,4 +45,5 @@ alert(a);
         botNavigate.stop = 1;
         botNavigate.dead = 1;
     }
+	alert(JSON.stringify(botNavigate));
 };
