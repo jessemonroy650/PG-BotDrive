@@ -3,9 +3,9 @@ width:45%;
 }
 .table {
 display:table;
-width:90%;
+width:80%;
 min-width:80%;
-margin:0;
+margin:1em 5% 3em 10%;
 }
 .tr {display:table-row;width:100%;}
 .tr:hover {background-color:#EEE8AA; /* #FF69B4 Hot Pink - Thanks Paul */}
@@ -30,14 +30,13 @@ overflow:auto;
 padding:0.25em;
 }
 .td:hover {background-color:#FFD700; /* Gold */}
-
 .arw {height:20px;width:20px;}
 
 @media only screen and (min-width:321px) and (max-width:600px) {
-.table {display:table;width:90%; margin:1em 2% 3em 5%;}
+.table {display:table;margin:1em 2% 3em 5%;}
 .tr {display:table-row;min-width:100%;}
-.th {min-width:150px;font-size:medium;} /* This is a hack */
-.td {min-width:150px;font-size:medium;} /* This is a hack */
+.th {display:table-cell;font-size:medium;padding:0;}
+.td {display:table-cell;font-size:medium;padding:0;}
 .arw {height:15px;width:15px;}
 }
 
