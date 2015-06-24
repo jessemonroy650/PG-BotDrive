@@ -13,15 +13,15 @@
         Jesse Monroy
         </author>
         <gap:platform name="android" />
-		<gap:platform name="ios" />
+        <gap:platform name="ios" />
 
         <preference name="permissions" value="none"/>
-		<!-- device information/phone model, uuid, etc -->
-		<gap:plugin name="org.apache.cordova.device" />
-		<!-- Accelerometer -->
+        <!-- device information/phone model, uuid, etc -->
+        <gap:plugin name="org.apache.cordova.device" />
+        <!-- Accelerometer -->
         <gap:plugin name="org.apache.cordova.device-motion" />
-		<!-- Compass, not always accurate -->
-		<gap:plugin name="org.apache.cordova.device-orientation" />
-		<!-- Network Information, if connected and how -->
+        <!-- Compass, not always accurate -->
+        <gap:plugin name="org.apache.cordova.device-orientation" />
+        <!-- Network Information, if connected and how -->
         <gap:plugin name="org.apache.cordova.network-information" />
     </widget>

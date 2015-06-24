@@ -11,11 +11,11 @@
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script> -->
-	<script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/zepto-1.1.6.js"></script>
     <script type="text/javascript">
-	function onLoad() {
-		//alert("body loaded.");
-	}
+    function onLoad() {
+        //alert("body loaded.");
+    }
     </script>
 </head>
 <body onload="onLoad()">
@@ -24,9 +24,9 @@ style="background:linear-gradient(to bottom, #8fc400 0%,#8fc400 100%);
 height:2em;text-align:center;
 padding:0.1em;
 ">
-	<img id=app-icon  align=left  src=favicon-48x48.png>
-	<span style="color:#ffffff;">Drive Stick</span>
-	<img id=menu-bars align=right src=images/3menubars_grey.png>
+    <img id=app-icon  align=left  src=favicon-48x48.png>
+    <span style="color:#ffffff;">Drive Stick</span>
+    <img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
 <button id=exitApp onclick="navigator.app.exitApp()" class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">Exit</button>
 
@@ -47,14 +47,14 @@ padding:0.1em;
 </div>
 </body>
     <script type="text/javascript">
-	//
-	$('#driveStick').on("touchstart", function(e) {
-		e.preventDefault();
-		$('#TSXcoord').text(JSON.stringify(e));
-		return false;
-		//$('#TSYcoord').text(e.pageY);
-		//console.log(e);
-	});
+    //
+    $('#driveStick').on("touchstart", function(e) {
+        e.preventDefault();
+        $('#TSXcoord').text(JSON.stringify(e));
+        return false;
+        //$('#TSYcoord').text(e.pageY);
+        //console.log(e);
+    });
     </script>
 </html>
 

@@ -23,112 +23,112 @@
 
     <script type="text/javascript">
 
-	var trigger = {
-    	left : 3.0,
-	    right: -3.0,
-    	ystop: 8.0,
-	    yminforward: 0,
-    	ymaxforward: 5,
-	    zminforward: 8,
-    	yfatal: 0,
-	    zfatal: 0
-	};
+    var trigger = {
+        left : 3.0,
+        right: -3.0,
+        ystop: 8.0,
+        yminforward: 0,
+        ymaxforward: 5,
+        zminforward: 8,
+        yfatal: 0,
+        zfatal: 0
+    };
 
 
-	var botNavigate = {
-    	left    : 0,
-	    right   : 0,
-    	forward : 0,
-	    backward : 0,
-    	stop    : 0,
-	    dead    : 0
-	};
+    var botNavigate = {
+        left    : 0,
+        right   : 0,
+        forward : 0,
+        backward : 0,
+        stop    : 0,
+        dead    : 0
+    };
 
-	var deadman = 0;
+    var deadman = 0;
 
-	//
+    //
     // Wait for PhoneGap to load
-	document.addEventListener("deviceready", onDeviceReady, false);
-	// Network status listeners
-	document.addEventListener("offline", connectionView.offline, false);
-	document.addEventListener("online", connectionView.online, false);
-	//////////////////////////////////
-	//
-	//	This is the heart of the program.
-	//
-	//////////////////////////////////
-	function updateAccel(accelData) {
-		myAccelView.update(accelData);
-		driveBot(accelData);
-		//botSimulate.viewUpdate();
-		simulateDriveBot();
-	}
-	//
-	//
-	//
-	function onDeviceReady() {
-		//alert("device ready.");
-		// Accelerometer
-		myAccel.init(updateAccel);
-		myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
-		myAccelView.clear();
-		// Network Status
-		connectionView.updateConnection();
-		// Device Information
-		updateDeviceInfo()
-	}
-	//
-	function onLoad() {
-		//alert("body loaded.");
-	}
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // Network status listeners
+    document.addEventListener("offline", connectionView.offline, false);
+    document.addEventListener("online", connectionView.online, false);
+    //////////////////////////////////
+    //
+    //    This is the heart of the program.
+    //
+    //////////////////////////////////
+    function updateAccel(accelData) {
+        myAccelView.update(accelData);
+        driveBot(accelData);
+        //botSimulate.viewUpdate();
+        simulateDriveBot();
+    }
+    //
+    //
+    //
+    function onDeviceReady() {
+        //alert("device ready.");
+        // Accelerometer
+        myAccel.init(updateAccel);
+        myAccelView.init('accelX', 'accelY', 'accelZ', 'timestamp');
+        myAccelView.clear();
+        // Network Status
+        connectionView.updateConnection();
+        // Device Information
+        updateDeviceInfo()
+    }
+    //
+    function onLoad() {
+        //alert("body loaded.");
+    }
     </script>
 </head>
 <body onload="onLoad()">
 <div id=app-bar>
-	<img id=app-icon  align=left  src=favicon-48x48.png>
-	<span style="color:#ffffff;">PG BotDrive</span>
-	<img id=menu-bars align=right src=images/3menubars_grey.png>
+    <img id=app-icon  align=left  src=favicon-48x48.png>
+    <span style="color:#ffffff;">PG BotDrive</span>
+    <img id=menu-bars align=right src=images/3menubars_grey.png>
 </div>
 <button id=exitApp class="button button-pill button-primary button-large" style="margin:0.1em;float:right;">
-	Exit
+    Exit
 </button>
 <button id=toggleAccel class="button button-pill button-primary button-large" style="margin:0.1em">
-	Toggle Accel
+    Toggle Accel
 </button>
 <div style="margin:0;padding:0;"></div>
 
 <div id=accelerometerWrapper>
 
-	<div id=visualArrows class=arrowsWrapper>
-		<div id=table0 class=table>
-			<div id=row1 class=tr><div class=td></div><div class=td></div><div class=td><img id=d1 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
-			<div id=row2 class=tr><div class=td></div><div class=td></div><div class=td><img id=d2 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
-			<div id=row3 class=tr><div class=td><img id=d3 class=arw src=i/iL.png></div><div class=td><img id=d4 class=arw src=i/iL.png></div><div class=td><img id=d5 class=arw src=i/i0.png></div><div class=td><img id=d6 class=arw src=i/iR.png></div><div class=td><img id=d7 class=arw src=i/iR.png></div></div>
-			<div id=row4 class=tr><div class=td></div><div class=td></div><div class=td><img id=d8 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
-			<div id=row5 class=tr><div class=td></div><div class=td></div><div class=td><img id=d9 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
-		</div>
-	</div>
+    <div id=visualArrows class=arrowsWrapper>
+        <div id=table0 class=table>
+            <div id=row1 class=tr><div class=td></div><div class=td></div><div class=td><img id=d1 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
+            <div id=row2 class=tr><div class=td></div><div class=td></div><div class=td><img id=d2 class=arw src=i/iU.png></div><div class=td></div><div class=td></div></div>
+            <div id=row3 class=tr><div class=td><img id=d3 class=arw src=i/iL.png></div><div class=td><img id=d4 class=arw src=i/iL.png></div><div class=td><img id=d5 class=arw src=i/i0.png></div><div class=td><img id=d6 class=arw src=i/iR.png></div><div class=td><img id=d7 class=arw src=i/iR.png></div></div>
+            <div id=row4 class=tr><div class=td></div><div class=td></div><div class=td><img id=d8 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
+            <div id=row5 class=tr><div class=td></div><div class=td></div><div class=td><img id=d9 class=arw src=i/iD.png></div><div class=td></div><div class=td></div></div>
+        </div>
+    </div>
 
-	<div id=gforceInformation> <!-- aka accelerometer -->
-		<div id=ax class="button button-block button-action button-large buttonOverride" >X <span id=accelX></span></div>
-		<div id=ay class="button button-block button-action button-large" >Y <span id=accelY></span></div>
-		<div id=az class="button button-block button-action button-large" >Z <span id=accelZ></span></div>
-		<div id=ts class="button button-block button-primary button-large" ><span id=timestamp></span></div>
-	</div>
+    <div id=gforceInformation> <!-- aka accelerometer -->
+        <div id=ax class="button button-block button-action button-large buttonOverride" >X <span id=accelX></span></div>
+        <div id=ay class="button button-block button-action button-large" >Y <span id=accelY></span></div>
+        <div id=az class="button button-block button-action button-large" >Z <span id=accelZ></span></div>
+        <div id=ts class="button button-block button-primary button-large" ><span id=timestamp></span></div>
+    </div>
 </div>
 
 <div id=headingInformation class="button button-block button-pill button-primary button-large" style="margin:1em;">Heading: <span id=heading></span></div>
 
 <div id=networkInformation>
-	<div id=nt class="button button-block button-caution button-large" style="margin:0 0.2em;"><span id=networktype>No network connection</span></div>
+    <div id=nt class="button button-block button-caution button-large" style="margin:0 0.2em;"><span id=networktype>No network connection</span></div>
 </div>
 
 <div id=deviceInformation class="hidden">
-	<div id=c class="button button-block button-royal">cordova <span id=cordova></span></div>
-	<div id=m class="button button-block button-action">model <span id=model></span></div>
-	<div id=p class="button button-block button-primary">platform <span id=platform></span></div>
-	<div id=u class="button button-block button-caution">UUID <span id=uuid>uuid</span></div>
-	<div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
+    <div id=c class="button button-block button-royal">cordova <span id=cordova></span></div>
+    <div id=m class="button button-block button-action">model <span id=model></span></div>
+    <div id=p class="button button-block button-primary">platform <span id=platform></span></div>
+    <div id=u class="button button-block button-caution">UUID <span id=uuid>uuid</span></div>
+    <div id=v class="button button-block button-highlight">Version <span id=version>version</span></div>
 </div>
 
 <pre id=dbug_console>
@@ -138,20 +138,20 @@
     <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
 </div>
     <script type="text/javascript">
-	//
-	$('#app-icon').click(function(){
-		$('#deviceInformation').toggleClass("hidden");
-	});
-	$('#menu-bars').click(function(){
-		//navigator.app.exitApp();
-	});
-	//
-	$('#exitApp').click(function(){
-		navigator.app.exitApp();
-	});
-	$('#toggleAccel').click(function(){
-		myAccel.toggle();
-	});
+    //
+    $('#app-icon').click(function(){
+        $('#deviceInformation').toggleClass("hidden");
+    });
+    $('#menu-bars').click(function(){
+        //navigator.app.exitApp();
+    });
+    //
+    $('#exitApp').click(function(){
+        navigator.app.exitApp();
+    });
+    $('#toggleAccel').click(function(){
+        myAccel.toggle();
+    });
     </script>
 </html>
 
